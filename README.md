@@ -90,9 +90,9 @@ Before using PyTorch's built-in attention, build your own.
 2. Train for **5 epochs** with `Adam(lr=1e-3)` and `CrossEntropyLoss`. Time the training with `time.time()`.
 3. Plot training and validation loss + accuracy. Report best validation accuracy and total training time.
 
-### Task 3 — Small Transformer Classifier
+### Task 3 — Transformer Classifier and Comparison with the LSTM
 
-Build a transformer encoder for the same task.
+Build a transformer encoder for the same sentiment task and compare it head-to-head against the LSTM you trained in Task 2.
 
 1. Define a `TransformerClassifier`:
    - `nn.Embedding(vocab_size, d_model=64)`
@@ -101,22 +101,12 @@ Build a transformer encoder for the same task.
    - Take the **mean** over the sequence dimension (or the first token, your choice — note which you picked)
    - `nn.Dropout(0.3)` → `nn.Linear(d_model, 2)`
 2. Train for the same **5 epochs** with the same optimiser and loss. Time the training.
-3. Plot training and validation loss + accuracy. Report best validation accuracy and total training time.
-
-### Task 4 — LSTM vs Transformer Comparison
-
-In a markdown cell, fill in this table and write a 4–6 sentence comparison:
+3. Plot training and validation loss + accuracy, report best validation accuracy and total training time, then fill in the comparison table below and write a **4–6 sentence comparison** of the two models — which converged faster per epoch, which ended at higher accuracy, and whether the transformer's parallelism noticeably affected training time on your hardware.
 
 | Model | Best val accuracy | Total training time | Parameter count |
 |---|---|---|---|
 | LSTM (Task 2) | … | … | … |
 | Transformer (Task 3) | … | … | … |
-
-Your comparison should touch on:
-
-- Which converged faster per epoch?
-- Which finished with higher accuracy?
-- Did the transformer's parallelism noticeably affect training time on your hardware?
 
 ## Submission
 
@@ -130,8 +120,7 @@ Your comparison should touch on:
 - [ ] From-scratch scaled dot-product attention implemented and verified.
 - [ ] LSTM classifier trained with curves and timing.
 - [ ] Transformer classifier trained with curves and timing.
-- [ ] Comparison table with parameter counts, accuracy, and training time.
-- [ ] At least one markdown reflection per task.
+- [ ] LSTM-vs-Transformer comparison table filled in (in Task 3) and 4–6 sentence written comparison.
 - [ ] `Kernel → Restart & Run All` produces no errors.
 
 ### How to submit (Git workflow)
